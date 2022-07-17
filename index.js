@@ -1,17 +1,30 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // the function should return true if any pair of numbers in the arry add up to the target.
+  for (i = 0; i < array.length; i++) {
+    let j = i + 1;
+    for (j; j < array.length; j++) {
+        if (array[i] + array[j] === target) {
+          return true;
+        }
+    }
+  }
+  return false;
 }
 
-/* 
-  Write the Big O time complexity of your function here
+/*
+  O(n^2)
 */
 
 /* 
-  Add your pseudocode here
+  iterate through array
+  add first index to all other indices to compare to target
+  add second index to all other... etc...
+  if array[i] + array[j] === target return true
+  else return false
 */
 
 /*
-  Add written explanation of your solution here
+  As we iterate through the first for loop, we are starting with each item in the array represented by index i. For each item starting at array[0] we are then iterating through another for loop where the index starts one higher than i represented by index j. This loop iterates through every remaining number in the array and compares it to a conditional in an if statement. This conditional asks if the item at array[i] is equal to the item at array[j]. If it is, then the funciton returns true. If it is not, then we go back to the first for loop and add +1 to i and j and check again. If we've iterated through all of the array[i] loop without returning true, then we return false. 
 */
 
 // You can run `node index.js` to view these console logs
